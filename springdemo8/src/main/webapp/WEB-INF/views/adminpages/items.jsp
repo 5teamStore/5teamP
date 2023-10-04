@@ -72,34 +72,42 @@
 	    window.location.href = '/adminpages/item/queryItemByKeyword?keyword=' + keyword;
 	}
 	
+	
+    // 檢查success屬性是否存在並為true
+    <c:if test="${not empty success and success eq true}">
+        // 使用jQuery選擇模態並顯示它
+        $(document).ready(function() {
+            $('#successModal').modal('show');
+        });
+    </c:if>
+	
 </script>
 
 </head>
 
 <body class="sb-nav-fixed">
+	
+	
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-lg-0 me-0 me-lg-0"
 			id="sidebarToggle" href="#!">
-			<i class="fa-solid fa-bars fa-xl"></i>
+			<font size="4"><i class="fa-solid fa-bars fa-xl"></i></font>
 		</button>
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-4"
-			href="<c:url value='/adminpages/adminindex' />">5team</a>
+		<a class="navbar-brand ps-4" href="<c:url value='/adminpages/adminindex' />"><font size="6"><b>5team</b></font></a>
 		<!-- Navbar-->
 		<ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
-					class="fas fa-user fa-fw"></i></a>
+			<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<font size="5"><i class="fas fa-user fa-fw"></i></font>
+		</a>
 				<ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="#!">設定</a></li>
-					<li>
-						<hr class="dropdown-divider" />
-					</li>
-					<li><a class="dropdown-item" href="<c:url value='/logout'/>">登出</a></li>
-				</ul></li>
+					<li><a class="dropdown-item" href="#!"><font size="4">設定</font></a></li>
+					<li><hr class="dropdown-divider" /></li>
+					<li><a class="dropdown-item" href="<c:url value='/logout'/>"><font size="4">登出</font></a></li>
+				</ul>
+			</li>
 		</ul>
 	</nav>
 	<div id="layoutSidenav">
@@ -108,18 +116,18 @@
 				id="sidenavAccordion">
 				<div class="sb-sidenav-menu">
 					<div class="nav">
-						<div class="sb-sidenav-menu-heading">總覽</div>
+						<div class="sb-sidenav-menu-heading"><font size="4">總覽</font></div>
 						<a class="nav-link"
 							href="<c:url value='/adminpages/adminindex' />">
 							<div class="sb-nav-link-icon">
 								<i class="fa-solid fa-house"></i><i class="bi bi-person-fill"></i>
-							</div> 首頁
+							</div> <font size="4"><b>首頁</b></font>
 						</a> <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
 							aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
 								<i class="fa-solid fa-people-group"></i>
-							</div> 會員
+							</div> <font size="4"><b>會員</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
@@ -128,7 +136,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link"
-									href="<c:url value='/adminpages/user/queryUser' />">會員查詢</a>
+									href="<c:url value='/adminpages/user/queryUser' />"><font size="4"><b>會員查詢</b></font></a>
 							</nav>
 						</div>
 
@@ -137,18 +145,20 @@
 							aria-controls="collapseLayouts2">
 							<div class="sb-nav-link-icon">
 								<i class="fa-solid fa-briefcase"></i>
-							</div> 員工
+							</div> <font size="4"><b>員工</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
+
 						<div class="collapse" id="collapseLayouts2"
 							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link"
-									href="<c:url value='/adminpages/employee/queryEmployee' />">員工管理</a>
+									href="<c:url value='/adminpages/employee/queryEmployee' />"><font size="4"><b>員工管理</b></font></a>
 								<a class="nav-link"
-									href="<c:url value='/adminpages/employee/CreateEmployeeForm' />">新增員工</a>
+									href="<c:url value='/adminpages/employee/CreateEmployeeForm' />"><font size="4"><b>新增員工</b></font></a>
+
 							</nav>
 						</div>
 
@@ -157,7 +167,7 @@
 							aria-controls="collapseLayouts3">
 							<div class="sb-nav-link-icon">
 								<i class="fa-solid fa-cart-shopping"></i>
-							</div> 商品
+							</div> <font size="4"><b>商品</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
@@ -166,18 +176,20 @@
 							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link"
-									href="<c:url value='/adminpages/item/queryItem' />">商品管理</a> <a
+									href="<c:url value='/adminpages/item/queryItem' />"><font size="4"><b>商品管理</b></font></a> <a
 									class="nav-link"
-									href="<c:url value='/adminpages/item/CreateItemForm' />">新增商品</a>
+									href="<c:url value='/adminpages/item/CreateItemForm' />"><font size="4"><b>新增商品</b></font></a>
 							</nav>
 						</div>
+
+
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts4" aria-expanded="false"
 							aria-controls="collapseLayouts4">
 							<div class="sb-nav-link-icon">
 								<i class="fa-solid fa-envelope"></i>
-							</div> 郵件
+							</div> <font size="4"><b>優惠券</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
@@ -185,64 +197,28 @@
 						<div class="collapse" id="collapseLayouts4"
 							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="">寄送郵件</a>
+								<a class="nav-link" href=""><font size="4"><b>新增優惠券</b></font></a>
 							</nav>
 						</div>
+						
+						<div class="collapse" id="collapseLayouts4"
+							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href=""><font size="4"><b>派發優惠券</b></font></a>
+							</nav>
+						</div>
+						
 
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#collapsePages" aria-expanded="false"
-							aria-controls="collapsePages">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-book-open"></i>
-							</div> 保留
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="collapsePages"
-							aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav accordion"
-								id="sidenavAccordionPages">
-								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-									data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-									aria-controls="pagesCollapseAuth"> Authentication
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
-									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseAuth"
-									aria-labelledby="headingOne"
-									data-bs-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.html">Login</a> <a
-											class="nav-link" href="register.html">Register</a> <a
-											class="nav-link" href="password.html">Forgot Password</a>
-									</nav>
-								</div>
-								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-									data-bs-target="#pagesCollapseError" aria-expanded="false"
-									aria-controls="pagesCollapseError"> Error
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
-									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseError"
-									aria-labelledby="headingOne"
-									data-bs-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="401.html">401 Page</a> <a
-											class="nav-link" href="404.html">404 Page</a> <a
-											class="nav-link" href="500.html">500 Page</a>
-									</nav>
-								</div>
-							</nav>
-						</div>
+
+
+						
 						<div class="sb-sidenav-menu-heading"></div>
 					</div>
 				</div>
+				
 				<div class="sb-sidenav-footer">
-					<div class="small">目前用戶:</div>
-					<div>${sessionScope.myUser.username}</div>
+					<div class="small"><font size="4"><b>目前用戶:</b></font></div>
+					<div><font size="4"><b>${sessionScope.myUser.username}</b></font></div>
 				</div>
 			</nav>
 		</div>
