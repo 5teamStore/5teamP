@@ -87,13 +87,13 @@
 						<a class="nav-link"
 							href="<c:url value='/adminpages/adminindex' />">
 							<div class="sb-nav-link-icon">
-								<i class="fa-solid fa-house"></i><i class="bi bi-person-fill"></i>
+								<font size="4"><i class="fa-solid fa-house"></i><i class="bi bi-person-fill"></i></font>
 							</div> <font size="4"><b>首頁</b></font>
 						</a> <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
 							aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
-								<i class="fa-solid fa-people-group"></i>
+								<font size="4"><i class="fa-solid fa-people-group"></i></font>
 							</div> <font size="4"><b>會員</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
@@ -111,7 +111,7 @@
 							data-bs-target="#collapseLayouts2" aria-expanded="false"
 							aria-controls="collapseLayouts2">
 							<div class="sb-nav-link-icon">
-								<i class="fa-solid fa-briefcase"></i>
+								<font size="4"><i class="fa-solid fa-briefcase"></i></font>
 							</div> <font size="4"><b>員工</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
@@ -133,7 +133,7 @@
 							data-bs-target="#collapseLayouts3" aria-expanded="false"
 							aria-controls="collapseLayouts3">
 							<div class="sb-nav-link-icon">
-								<i class="fa-solid fa-cart-shopping"></i>
+								<font size="4"><i class="fa-solid fa-cart-shopping"></i></font>
 							</div> <font size="4"><b>商品</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
@@ -148,14 +148,33 @@
 									href="<c:url value='/adminpages/item/CreateItemForm' />"><font size="4"><b>新增商品</b></font></a>
 							</nav>
 						</div>
-
+						
+						
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseLayouts5" aria-expanded="false"
+							aria-controls="collapseLayouts5">
+							<div class="sb-nav-link-icon">
+								<font size="5"><i class="fa-regular fa-clipboard"></i></font>
+							</div> <font size="4"><b>訂單</b></font>
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseLayouts5"
+							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link"
+									href="<c:url value='/adminpages/item/queryItem' />"><font size="4"><b>訂單查詢</b></font></a> 
+							</nav>
+						</div>
+						
 
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts4" aria-expanded="false"
 							aria-controls="collapseLayouts4">
 							<div class="sb-nav-link-icon">
-								<i class="fa-solid fa-envelope"></i>
+								<font size="4"><i class="fa-solid fa-ticket"></i></font>
 							</div> <font size="4"><b>優惠券</b></font>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
@@ -175,8 +194,6 @@
 							</nav>
 						</div>
 						
-
-
 
 						
 						<div class="sb-sidenav-menu-heading"></div>
