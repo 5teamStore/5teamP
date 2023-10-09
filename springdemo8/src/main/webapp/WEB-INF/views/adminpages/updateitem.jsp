@@ -24,6 +24,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script src="<c:url value='/js/scripts.js' />"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	let inputFileToLoad = null;
 	let image = null;
@@ -49,6 +50,28 @@
 			fileReader.readAsDataURL(fileToLoad);
 		}
 	}
+	
+	$(document).ready(function() {
+	    // 檢查是否有錯誤訊息
+	    var hasError = false;
+	    $('#filenameError').hide();
+	    $('#itemIdError').hide();
+
+	    
+	    if ($('#filenameError').text().trim() !== '') {
+	        $('#filenameError').show();
+	        hasError = true;
+	    }
+	    if ($('#itemIdError').text().trim() !== '') {
+	        $('#itemIdError').show();
+	        hasError = true;
+	    }
+	  
+	    // 至少一個錯誤訊息
+	    if (hasError) {
+	        $('#successModal').modal('show'); // 顯示模態視窗
+	    }
+	});
 </script>
 </head>
 
@@ -247,6 +270,21 @@
 									</div>
 								</div>
 								
+								
+								
+								<!-- Modal -->
+								<div class="modal fade" id="successModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<button type="button" class="btn btn-danger" id="filenameError">
+											<font size="8"><b><form:errors cssClass="error" path='filename' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="itemIdError">
+											<font size="8"><b><form:errors cssClass="error" path='itemId' /></b></font>
+										</button>
+									</div>
+								</div>
+								
 							
 								
 								<table class="table">
@@ -309,9 +347,7 @@
 														</c:otherwise>
 													</c:choose>
 												</div>
-												<div class='col-sm-4'>
-													<form:errors cssClass="error" path='filename' />
-												</div>
+
 											</th>
 										</tr>
 									</tbody>
@@ -338,7 +374,7 @@
 				<div class="container-fluid px-4">
 					<div
 						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2023</div>
+						<div class="text-muted">Copyright &copy; 5team 2023</div>
 
 					</div>
 				</div>

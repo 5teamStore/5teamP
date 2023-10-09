@@ -267,7 +267,7 @@
 								<div class="row">
 									<div
 										class="col-sm-6 p-0 d-flex justify-content-lg-start justify-content-lg-start">
-										<h2 class="ml-lg-2">員工資料管理</h2>
+										<h2 class="ml-lg-2"><font size="5"><b>員工資料管理</b></font></h2>
 									</div>
 									<div
 										class="col-sm-6 p- d-md-inline-block justify-content-lg-end justify-content-lg-end">
@@ -276,7 +276,7 @@
 											href="<c:url value='/adminpages/employee/CreateEmployeeForm' />"
 											class="btn btn-success" data-toggle="modal"> <i
 											class="fa-sharp fa-light fa-square-plus" id="material-icons"></i>
-											<b>新增員工</b>
+											<font size="4"><b>新增員工</b></font>
 										</a>
 
 									</div>
@@ -333,31 +333,33 @@
 							<div class="clearfix">
 								<div class="hint-text">
 									<!-- 顯示當前頁數範圍與總數量 -->
-									顯示第 <b id="start">${startIndex + 1}</b> 至 <b id="end">${endIndex + 1}</b>
-									筆，共有 <b id="total">${fn:length(employeeList)}</b> 筆
+									<font size="4">顯示第 <b id="start">${startIndex + 1}</b> 至 <b id="end">${endIndex + 1}</b>
+									筆，共有 <b id="total">${fn:length(employeeList)}</b> 筆</font>
 								</div>
 								<ul class="pagination">
 									<!-- 上一頁按鈕 -->
 									<li class="page-item ${currentPage == 1 ? 'disabled' : ''}"
 										id="previousPage"><c:if test="${currentPage != 1}">
-											<a href="?page=${currentPage - 1}" class="page-link">上一頁</a>
+											<a href="?page=${currentPage - 1}" class="page-link"><font size="4"><b>上一頁</b></font></a>
 										</c:if></li>
 
 									<!-- 頁碼按鈕 -->
 									<c:forEach var="page" begin="1" end="${totalPages}"
 										varStatus="status">
+
 										<li class="page-item ${currentPage == page ? 'active' : ''}">
 											<c:if test="${currentPage != page}">
-												<a href="?page=${page}" class="page-link">${page}</a>
+												<a href="?page=${page}" class="page-link"><font size="4"><b>${page}</b></font></a>
 											</c:if>
 										</li>
+										
 									</c:forEach>
 
 									<!-- 下一頁按鈕 -->
 									<li
 										class="page-item ${currentPage == totalPages ? 'disabled' : ''}"
 										id="nextPage"><c:if test="${currentPage != totalPages}">
-											<a href="?page=${currentPage + 1}" class="page-link">下一頁</a>
+											<a href="?page=${currentPage + 1}" class="page-link"><font size="4"><b>下一頁</b></font></a>
 										</c:if></li>
 								</ul>
 							</div>
@@ -373,7 +375,7 @@
 				<div class="container-fluid px-4">
 					<div
 						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2023</div>
+						<div class="text-muted">Copyright &copy; 5team 2023</div>
 
 					</div>
 				</div>

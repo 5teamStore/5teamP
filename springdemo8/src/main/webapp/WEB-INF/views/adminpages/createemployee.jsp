@@ -22,6 +22,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script src="<c:url value='/js/scripts.js' />"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	let inputFileToLoad = null;
 	let image = null;
@@ -47,12 +48,55 @@
 			fileReader.readAsDataURL(fileToLoad);
 		}
 	}
+	
+	
+	$(document).ready(function() {
+	    // 檢查是否有錯誤訊息
+	    var hasError = false;
+	    $('#filenameError').hide();
+	    $('#employeeIdError').hide();
+	    $('#accountError').hide();
+	    $('#nameError').hide();
+	    $('#birthdayError').hide();
+	    $('#emailError').hide();
+	    
+	    if ($('#filenameError').text().trim() !== '') {
+	        $('#filenameError').show();
+	        hasError = true;
+	    }
+	    if ($('#employeeIdError').text().trim() !== '') {
+	        $('#employeeIdError').show();
+	        hasError = true;
+	    }
+	    if ($('#accountError').text().trim() !== '') {
+	    	$('#accountError').show();
+	        hasError = true;
+	    }
+	    if ($('#nameError').text().trim() !== '') {
+	    	$('#nameError').show();
+	        hasError = true;
+	    }
+	    if ($('#birthdayError').text().trim() !== '') {
+	    	$('#birthdayError').show();
+	        hasError = true;
+	    }
+	    if ($('#emailError').text().trim() !== '') {
+	    	$('#emailError').show();
+	        hasError = true;
+	    }
+
+	    // 至少一個錯誤訊息
+	    if (hasError) {
+	        $('#successModal').modal('show'); // 顯示模態視窗
+	    }
+	});
+	
 </script>
 
 </head>
 
 <body class="sb-nav-fixed">
-	
+
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-lg-0 me-0 me-lg-0"
@@ -60,19 +104,22 @@
 			<font size="4"><i class="fa-solid fa-bars fa-xl"></i></font>
 		</button>
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-4" href="<c:url value='/adminpages/adminindex' />"><font size="6"><b>5team</b></font></a>
+		<a class="navbar-brand ps-4"
+			href="<c:url value='/adminpages/adminindex' />"><font size="6"><b>5team</b></font></a>
 		<!-- Navbar-->
 		<ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
-			<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-				<font size="5"><i class="fas fa-user fa-fw"></i></font>
-		</a>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
+				role="button" data-bs-toggle="dropdown" aria-expanded="false"> <font
+					size="5"><i class="fas fa-user fa-fw"></i></font>
+			</a>
 				<ul class="dropdown-menu dropdown-menu-end"
 					aria-labelledby="navbarDropdown">
 					<li><a class="dropdown-item" href="#!"><font size="4">設定</font></a></li>
 					<li><hr class="dropdown-divider" /></li>
-					<li><a class="dropdown-item" href="<c:url value='/logout'/>"><font size="4">登出</font></a></li>
-				</ul>
-			</li>
+					<li><a class="dropdown-item" href="<c:url value='/logout'/>"><font
+							size="4">登出</font></a></li>
+				</ul></li>
 		</ul>
 	</nav>
 	<div id="layoutSidenav">
@@ -81,11 +128,14 @@
 				id="sidenavAccordion">
 				<div class="sb-sidenav-menu">
 					<div class="nav">
-						<div class="sb-sidenav-menu-heading"><font size="4">總覽</font></div>
+						<div class="sb-sidenav-menu-heading">
+							<font size="4">總覽</font>
+						</div>
 						<a class="nav-link"
 							href="<c:url value='/adminpages/adminindex' />">
 							<div class="sb-nav-link-icon">
-								<font size="4"><i class="fa-solid fa-house"></i><i class="bi bi-person-fill"></i></font>
+								<font size="4"><i class="fa-solid fa-house"></i><i
+									class="bi bi-person-fill"></i></font>
 							</div> <font size="4"><b>首頁</b></font>
 						</a> <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -101,7 +151,8 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link"
-									href="<c:url value='/adminpages/user/queryUser' />"><font size="4"><b>會員查詢</b></font></a>
+									href="<c:url value='/adminpages/user/queryUser' />"><font
+									size="4"><b>會員查詢</b></font></a>
 							</nav>
 						</div>
 
@@ -120,9 +171,10 @@
 							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link"
-									href="<c:url value='/adminpages/employee/queryEmployee' />"><font size="4"><b>員工管理</b></font></a>
-								<a class="nav-link"
-									href="<c:url value='/adminpages/employee/CreateEmployeeForm' />"><font size="4"><b>新增員工</b></font></a>
+									href="<c:url value='/adminpages/employee/queryEmployee' />"><font
+									size="4"><b>員工管理</b></font></a> <a class="nav-link"
+									href="<c:url value='/adminpages/employee/CreateEmployeeForm' />"><font
+									size="4"><b>新增員工</b></font></a>
 
 							</nav>
 						</div>
@@ -141,13 +193,14 @@
 							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link"
-									href="<c:url value='/adminpages/item/queryItem' />"><font size="4"><b>商品管理</b></font></a> <a
-									class="nav-link"
-									href="<c:url value='/adminpages/item/CreateItemForm' />"><font size="4"><b>新增商品</b></font></a>
+									href="<c:url value='/adminpages/item/queryItem' />"><font
+									size="4"><b>商品管理</b></font></a> <a class="nav-link"
+									href="<c:url value='/adminpages/item/CreateItemForm' />"><font
+									size="4"><b>新增商品</b></font></a>
 							</nav>
 						</div>
-						
-						
+
+
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts5" aria-expanded="false"
 							aria-controls="collapseLayouts5">
@@ -162,10 +215,11 @@
 							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link"
-									href="<c:url value='/adminpages/item/queryItem' />"><font size="4"><b>訂單查詢</b></font></a> 
+									href="<c:url value='/adminpages/item/queryItem' />"><font
+									size="4"><b>訂單查詢</b></font></a>
 							</nav>
 						</div>
-						
+
 
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -184,23 +238,27 @@
 								<a class="nav-link" href=""><font size="4"><b>新增優惠券</b></font></a>
 							</nav>
 						</div>
-						
+
 						<div class="collapse" id="collapseLayouts4"
 							aria-labelledby="headingthree" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href=""><font size="4"><b>派發優惠券</b></font></a>
 							</nav>
 						</div>
-						
 
-						
+
+
 						<div class="sb-sidenav-menu-heading"></div>
 					</div>
 				</div>
-				
+
 				<div class="sb-sidenav-footer">
-					<div class="small"><font size="4"><b>目前用戶:</b></font></div>
-					<div><font size="4"><b>${sessionScope.myUser.username}</b></font></div>
+					<div class="small">
+						<font size="4"><b>目前用戶:</b></font>
+					</div>
+					<div>
+						<font size="4"><b>${sessionScope.myUser.username}</b></font>
+					</div>
 				</div>
 			</nav>
 		</div>
@@ -208,8 +266,7 @@
 
 			<main>
 				<c:url var='insertUrl' value='/adminpages/employee/insertEmployee' />
-				<form:form method='POST' modelAttribute="employee"
-					action="${insertUrl}">
+				<form:form method='POST' modelAttribute="employee" action="${insertUrl}" >
 					<div class="main-content">
 						<div class="row">
 							<div class="col-md-12">
@@ -222,6 +279,34 @@
 
 									</div>
 								</div>
+
+
+								<!-- Modal -->
+								<div class="modal fade" id="successModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<button type="button" class="btn btn-danger" id="filenameError">
+											<font size="8"><b><form:errors cssClass="error" path='filename' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="employeeIdError">
+											<font size="8"><b><form:errors cssClass="error" path='employeeId' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="accountError">
+											<font size="8"><b><form:errors cssClass="error" path='account' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="nameError">
+											<font size="8"><b><form:errors cssClass="error" path='name' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="birthdayError">
+											<font size="8"><b><form:errors cssClass="error" path='birthday' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="emailError">
+											<font size="8"><b><form:errors cssClass="error" path='email' /></b></font>
+										</button>
+									</div>
+								</div>
+								
+
 								<table class="table">
 									<tbody>
 										<tr>
@@ -286,9 +371,7 @@
 														</c:otherwise>
 													</c:choose>
 												</div>
-												<div class='col-sm-4'>
-													<form:errors cssClass="error" path='filename' />
-												</div>
+
 											</th>
 										</tr>
 									</tbody>
@@ -314,7 +397,7 @@
 				<div class="container-fluid px-4">
 					<div
 						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2023</div>
+						<div class="text-muted">Copyright &copy; 5team 2023</div>
 
 					</div>
 				</div>

@@ -24,6 +24,7 @@
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script src="<c:url value='/js/scripts.js' />"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	let inputFileToLoad = null;
 	let image = null;
@@ -49,6 +50,48 @@
 			fileReader.readAsDataURL(fileToLoad);
 		}
 	}
+	
+	$(document).ready(function() {
+	    // 檢查是否有錯誤訊息
+	    var hasError = false;
+	    $('#filenameError').hide();
+	    $('#employeeIdError').hide();
+	    $('#accountError').hide();
+	    $('#nameError').hide();
+	    $('#birthdayError').hide();
+	    $('#emailError').hide();
+	    
+	    if ($('#filenameError').text().trim() !== '') {
+	        $('#filenameError').show();
+	        hasError = true;
+	    }
+	    if ($('#employeeIdError').text().trim() !== '') {
+	        $('#employeeIdError').show();
+	        hasError = true;
+	    }
+	    if ($('#accountError').text().trim() !== '') {
+	    	$('#accountError').show();
+	        hasError = true;
+	    }
+	    if ($('#nameError').text().trim() !== '') {
+	    	$('#nameError').show();
+	        hasError = true;
+	    }
+	    if ($('#birthdayError').text().trim() !== '') {
+	    	$('#birthdayError').show();
+	        hasError = true;
+	    }
+	    if ($('#emailError').text().trim() !== '') {
+	    	$('#emailError').show();
+	        hasError = true;
+	    }
+
+	    // 至少一個錯誤訊息
+	    if (hasError) {
+	        $('#successModal').modal('show'); // 顯示模態視窗
+	    }
+	});
+	
 </script>
 </head>
 
@@ -241,6 +284,36 @@
 
 									</div>
 								</div>
+								
+								
+								
+								<!-- Modal -->
+								<div class="modal fade" id="successModal" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<button type="button" class="btn btn-danger" id="filenameError">
+											<font size="8"><b><form:errors cssClass="error" path='filename' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="employeeIdError">
+											<font size="8"><b><form:errors cssClass="error" path='employeeId' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="accountError">
+											<font size="8"><b><form:errors cssClass="error" path='account' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="nameError">
+											<font size="8"><b><form:errors cssClass="error" path='name' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="birthdayError">
+											<font size="8"><b><form:errors cssClass="error" path='birthday' /></b></font>
+										</button>
+										<button type="button" class="btn btn-danger" id="emailError">
+											<font size="8"><b><form:errors cssClass="error" path='email' /></b></font>
+										</button>
+									</div>
+								</div>
+								
+								
+								
 								<table class="table">
 									<tbody>
 										<tr>
@@ -266,15 +339,15 @@
 										<tr>
 											<td colspan="2" class="table-active">姓名</td>
 											<th scope="row">
-											<input type="text" placeholder="姓名" class="form-control" value="${name}" name="name" required></th>
+											<input type="text" placeholder="姓名" class="form-control" value="${name}" name="name"></th>
 											<td colspan="2" class="table-active">生日</td>
 											<th scope="row">
-											<input type="date" placeholder="生日" name="birthday" class="form-control" value="${birthday}" required></th>
+											<input type="date" placeholder="生日" name="birthday" class="form-control" value="${birthday}"></th>
 										</tr>
 										<tr>
 											<td colspan="2" class="table-active">Email</td>
 											<th colspan="4" scope="row">
-											<input type="text" placeholder="Email" class="form-control" name="email" value="${email}" required></th>
+											<input type="text" placeholder="Email" class="form-control" name="email" value="${email}"></th>
 										</tr>
 										<tr>
 											<td colspan="2" class="table-active">性別</td>
@@ -322,9 +395,7 @@
 														</c:otherwise>
 													</c:choose>
 												</div>
-												<div class='col-sm-4'>
-													<form:errors cssClass="error" path='filename' />
-												</div>
+
 											</th>
 										</tr>
 										
@@ -347,7 +418,7 @@
 				<div class="container-fluid px-4">
 					<div
 						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2023</div>
+						<div class="text-muted">Copyright &copy; 5team 2023</div>
 
 					</div>
 				</div>
