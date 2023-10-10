@@ -4,9 +4,10 @@
 <%@ taglib prefix='form' uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
-<!--  Last Published: Tue Sep 12 2023 23:56:51 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="650071e17cd3c26438526046" data-wf-site="64e5ed3359b16400aec286b0">
+<!--  Last Published: Mon Sep 11 2023 23:53:07 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="64ffa1e78ff5aaf23ced1b18" data-wf-site="64e5ed3359b16400aec286b0">
 <head>
   <meta charset="utf-8">
   <title>View purchase history</title>
@@ -19,49 +20,47 @@
   <meta content="summary_large_image" name="twitter:card">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta content="Webflow" name="generator">
-  
-  <link href="/css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="/css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="/css/5teams-wondrous-site.webflow.css" rel="stylesheet" type="text/css">
+  <link href="/css/normalize1.css" rel="stylesheet" type="text/css">
+  <link href="/css/webflow1.css" rel="stylesheet" type="text/css">
+  <link href="/css/5teams-wondrous-site.webflow1.css" rel="stylesheet" type="text/css">
   <link href="/css/star.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Varela Round:400","Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic","Oswald:200,300,400,500,600,700","Great Vibes:400"]  }});</script>
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
-
   <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="/images/webclip.png" rel="apple-touch-icon">
 </head>
 <body class="body-4">
+  
   <div class="preloader">
     <div class="loading-icon"><img src="/images/preloader.gif" alt="" class="preloader-icon"></div>
   </div>
   <div class="f-section-large-5">
     <h5 class="heading-3">
-      <a href="/" class="link-6">首頁</a>&gt;<a href="game-search-page/view-purchase-history-copy-3.html" class="link-8">遊戲類別</a>&gt;英雄聯盟
+      <a href="/index.html" class="link-6">首頁</a>&gt;<a href="/game-search-page/view-purchase-history-copy-3.html" class="link-8">遊戲類別</a>&gt;英雄聯盟
     </h5>
     <div class="f-container-regular-5">
       <div class="w-layout-grid f-header-grid">
-        <div id="w-node-_33420444-5f64-04dd-5568-46544f86bc6c-38526046">
+        <div id="w-node-_33420444-5f64-04dd-5568-46544f86bc6c-3ced1b18">
           <div class="f-margin-bottom-85">
-            <h1 class="heading-26">★★★★★</h1>
+            <h1 class="heading-26"></h1>
           </div>
           <div class="f-margin-bottom-84">
-            <h1 class="f-h1-heading">${items.itemName }</h1>
+            <h1 class="f-h1-heading">${items.itemName}</h1>
           </div>
           <div class="f-margin-bottom-83">
-            <p class="f-paragraph-large-5">${items.itemDescription }
+            <p class="f-paragraph-large-5">${items.itemDescription }</p>
           </div>
           <div class="f-header-button-wrapper">
             <a href="#" class="f-button-neutral-6 w-inline-block">
               <div id="addToCart" name="addToCart" data-item-id="${items.id}" class="text-block-32">加入購物車</div>
-              
             </a>
           </div>
         </div>
-        <div id="w-node-_33420444-5f64-04dd-5568-46544f86bc7d-38526046" class="f-header-image-wrapper-tall"><img src="" loading="lazy" srcset="${items.dataUri }" sizes="(max-width: 991px) 90vw, 500.0000305175781px" alt="" class="f-image-cover-5"></div>
+        <div id="w-node-_33420444-5f64-04dd-5568-46544f86bc7d-3ced1b18" class="f-header-image-wrapper-tall"><img src="${items.dataUri }" sizes="(max-width: 991px) 90vw, 500.0000305175781px" alt="" class="f-image-cover-5"></div>
       </div>
     </div>
   </div>
@@ -73,23 +72,23 @@
             <aside class="slide-5 w-slide">
               <div class="div-block-68">
                 <div class="div-block-72">
-                  <div style="padding-top:56.17021276595745%" class="video-6 w-video w-embed"><iframe class="embedly-embed" src="${items.mp4 }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen" scrolling="no" allowfullscreen="" title="Warriors | Season 2020 Cinematic - League of Legends (ft. 2WEI and Edda Hayes)"></iframe></div>
+                  <div style="padding-top:56.17021276595745%" class="video-6 w-video w-embed"><iframe class="embedly-embed" src="${items.mp4}" scrolling="no" allowfullscreen="" title="Warriors | Season 2020 Cinematic - League of Legends (ft. 2WEI and Edda Hayes)"></iframe></div>
                 </div>
               </div>
             </aside>
             <aside class="slide-5 w-slide">
               <div class="div-block-68">
-                <div class="div-block-72"><img src="${items.dataUri1 }" loading="lazy" sizes="(max-width: 767px) 80vw, (max-width: 1919px) 60vw, 900.0000610351562px" srcset="${items.dataUri1}" alt="" class="image-45"></div>
+                <div class="div-block-72"><img src="" loading="lazy" sizes="(max-width: 767px) 80vw, (max-width: 1919px) 60vw, 900.0000610351562px" srcset="${items.dataUri1 }" alt="" class="image-45"></div>
               </div>
             </aside>
             <aside class="slide-5 w-slide">
               <div class="div-block-68">
-                <div class="div-block-72"><img src="${items.dataUri2 }" loading="lazy" sizes="(max-width: 767px) 80vw, (max-width: 1919px) 60vw, 900.0000610351562px" srcset="${items.dataUri2}" alt="" class="image-45"></div>
+                <div class="div-block-72"><img src="" loading="lazy" sizes="(max-width: 767px) 80vw, (max-width: 1919px) 60vw, 900.0000610351562px" srcset="${items.dataUri2 }" alt="" class="image-45"></div>
               </div>
             </aside>
             <aside class="slide-5 w-slide">
               <div class="div-block-68">
-                <div class="div-block-72"><img src="${items.dataUri }" loading="lazy" sizes="(max-width: 767px) 80vw, (max-width: 1919px) 60vw, 900.0000610351562px" srcset="${items.dataUri}" alt="" class="image-45"></div>
+                <div class="div-block-72"><img src="" loading="lazy" sizes="(max-width: 767px) 80vw, (max-width: 1919px) 60vw, 900.0000610351562px" srcset="${items.dataUri }" alt="" class="image-45"></div>
               </div>
             </aside>
           </div>
@@ -107,45 +106,50 @@
           <h2 class="f-h3-heading-9">評論</h2>
         </div>
       </div>
+        <div id="filterButtons">
+        <button class="filterButton" onclick="fetchReviews(6)">全部</button>
+        <button class="filterButton" onclick="fetchReviews(5)">五星</button>
+        <button class="filterButton" onclick="fetchReviews(4)">四星</button>
+        <button class="filterButton" onclick="fetchReviews(3)">三星</button>
+        <button class="filterButton" onclick="fetchReviews(2)">二星</button>
+        <button class="filterButton" onclick="fetchReviews(1)">一星</button>
+      </div>
       <div class="w-layout-grid f-grid-three-column">
-      <c:forEach var="review" items="${review}">
-        <div id="w-node-ef221b94-00dc-2e98-cd27-d9fe5e75b67b-38526046" class="f-testimonial-outline-small">
+      
+        <div id="w-node-ef221b94-00dc-2e98-cd27-d9fe5e75b67b-3ced1b18" class="f-testimonial-outline-small">
           <div class="f-testimonial-star-wrapper">
-            <c:forEach var="i" begin="1" end="${review.rating}">
-            
+ 
+ 
+ 
+ 
             <div class="f-icon-regular-3 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
                 <path d="M11.999 15.8196L7.50882 18.562L8.72951 13.4439L4.73438 10.0217L9.97847 9.60156L11.999 4.74323L14.0194 9.60156L19.2643 10.0217L15.2684 13.4439L16.4891 18.562L11.999 15.8196Z" fill="currentColor"></path>
               </svg></div>
-			</c:forEach>	
-
-          </div>
+  
+            </div>
           <div class="f-margin-bottom-80">
-            <p class="f-paragraph-small-3">${review.reviewText}</p>
+            <p class="f-paragraph-small-3"></p>
           </div>
-          <h3 class="heading-33">${review.userId.username}</h3>
           <div class="f-testimonial-author">
-          
-          
-          <c:choose>
+            <div class="f-testimonial-avatar-small"><img src="/images/avatar.png" loading="lazy" alt="" class="f-avatar-image-2"></div>
+            <div>
+              <p class="f-paragraph-regular-8 f-text-weight-medium"></p>
 
-					<c:when test="${review.userId.avatar.dataUri != null}"> 
-
-						  <div class="f-testimonial-avatar-small"><img src="data:image/jpeg;base64,${review.userId.avatar.dataUri}" loading="lazy" alt="" class="f-avatar-image-2"></div>
-					</c:when>
-											   
-					<c:otherwise>  
-					
-							<div class="f-testimonial-avatar-small"><img src="data:image/png;base64,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" loading="lazy" alt="" class="f-avatar-image-2"></div>		
-					
-					</c:otherwise>
-											  
-				</c:choose>
+            </div>
+            
           </div>
+
         </div>
-        </c:forEach>
+
+  
+      </div>
+       <div id="pagination">
+        <!-- 這裡動態生成頁碼按鈕 -->
       </div>
     </div>
+    
   </div>
+  
   <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="nav-bar-c77py w-nav">
     <div class="nav-main">
       <div class="wrapper nav-bar-wrapper">
@@ -154,20 +158,24 @@
         </a>
         <div class="navigation">
           <nav role="navigation" class="nav-menu w-nav-menu">
-            <a href="/" class="nav-link w-nav-link">首頁</a>
+            <a href="/index.html" class="nav-link w-nav-link">首頁</a>
             <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
               <div class="dropdown-toggle w-dropdown-toggle">
                 <div class="icon w-icon-dropdown-toggle"></div>
                 <div>遊戲類別</div>
               </div>
-				 <nav class="w-dropdown-list">
-				    <c:forEach var="itemCat" items="${itemCategories}">
-				        <a href="/ItemCategory?category=${itemCat.categoryName}" class="dropdown-link w-dropdown-link w--current">${itemCat.categoryName}</a>
-				    </c:forEach>
-				</nav>
+              <nav class="w-dropdown-list">
+			<a href="/ItemCategory?category=射擊遊戲" class="dropdown-link w-dropdown-link">射擊遊戲</a> 
+			<a href="/ItemCategory?category=動作冒險" class="dropdown-link-2 w-dropdown-link">動作冒險</a> 
+			<a href="/ItemCategory?category=角色扮演" class="dropdown-link-3 w-dropdown-link">角色扮演</a> 
+			<a href="/ItemCategory?category=即時戰略" class="dropdown-link-4 w-dropdown-link">即時戰略</a> 
+			<a href="/ItemCategory?category=卡牌策略" class="dropdown-link-5 w-dropdown-link">卡牌策略</a>
+			<a href="/ItemCategory?category=熱門商品" class="dropdown-link-5 w-dropdown-link">熱門商品</a>
+			<a href="/ItemCategory?category=優惠商品" class="dropdown-link-5 w-dropdown-link">優惠商品</a>
+              </nav>
             </div>
-            <a href="topup.html" class="nav-link w-nav-link">點數商店</a>
-            <a href="account-details/news-copy-2.html" class="nav-link w-nav-link">消息新聞</a>
+            <a href="/topup.html" class="nav-link w-nav-link">點數商店</a>
+            <a href="/account-details/news-copy-2.html" class="nav-link w-nav-link">消息新聞</a>
             <div><img src="/images/螢幕擷取畫面_2023-09-02__1_-removebg-preview-removebg-preview.png" loading="lazy" width="68" sizes="(max-width: 767px) 100vw, (max-width: 991px) 43.07291793823242px, (max-width: 1439px) 5vw, 67.98611450195312px" alt="" srcset="/images/螢幕擷取畫面_2023-09-02__1_-removebg-preview-removebg-preview-p-500.png 500w, /images/螢幕擷取畫面_2023-09-02__1_-removebg-preview-removebg-preview.png 552w"></div>
             <div data-hover="false" data-delay="0" class="dropdown w-dropdown">
               <div class="dropdown-toggle w-dropdown-toggle">
@@ -186,7 +194,7 @@
 									href="account-details/viewpurchasehistory.html"
 									class="dropdown-link-5 w-dropdown-link">檢視購買記錄</a>
               </nav>
-              </div>
+            </div>
  							<sec:authorize access="isAuthenticated()">
 								<span> <sec:authentication property="name" />
 								</span>
@@ -207,7 +215,7 @@
             <div class="icon-2 w-icon-nav-menu"></div>
           </div>
           <div data-node-type="commerce-cart-wrapper" data-open-product="" data-wf-cart-type="rightDropdown" data-wf-cart-query="" data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper cart">
-            <a href="#" data-node-type="commerce-cart-open-link" class="w-commerce-commercecartopenlink cart-button w-inline-block" role="button" aria-haspopup="dialog" aria-label="Open cart">
+            <a href="/cart" data-node-type="commerce-cart-open-link" class="w-commerce-commercecartopenlink cart-button w-inline-block" role="button" aria-haspopup="dialog" aria-label="Open cart">
               <div class="w-inline-block">購物車</div><img src="/images/cart-icon.svg" alt="" class="cart-icon">
               <div style="display:none" data-count-hide-rule="empty" class="w-commerce-commercecartopenlinkcount item-count">0</div>
             </a>
@@ -284,13 +292,12 @@
       </div>
     </div>
   </div>
-  <section>
- 	<c:url  var="formUrl" value="/Item/${items.id}" /> 
+  <section id="gameDetail">
+     <c:url  var="formUrl" value="/Item/${items.id}" />
     <div class="w-form">
-      <form:form  modelAttribute="newReview" action="${formUrl}" id="email-form"   name="email-form" data-name="Email Form" method="post" class="form-7 form-9" data-wf-page-id="650071e17cd3c26438526046" data-wf-element-id="8cdaf3e1-8e67-7d25-6469-5ad8ad6847e1">
+      <form:form  modelAttribute="newReview" action="${formUrl}" id="email-form" name="email-form" data-name="Email Form" method="post" class="form-7 form-9" data-wf-page-id="64ffa1e78ff5aaf23ced1b18" data-wf-element-id="8cdaf3e1-8e67-7d25-6469-5ad8ad6847e1">
         <div>
-        
-         <h3 class="heading-24">評分:</h3>
+          <h3 class="heading-24">評分:</h3>
          <div class="rating">
           <i class="rating__star far fa-star" ></i>
           <i class="rating__star far fa-star"></i>
@@ -300,8 +307,9 @@
           <form:input type="hidden" path="rating" id="rating"  value="0"/>
   		</div>
         </div>
-        <form:textarea class="textarea-3 w-input" maxlength="5000" path="reviewText" data-name="Field" placeholder="" id="field"/>
-        <input type="submit" value="提交" data-wait="Please wait..." class="button-77-cofpy-copy w-button"/>
+        
+        <form:textarea class="textarea-3 w-input"  path="reviewText" maxlength="5000"  data-name="Field" placeholder="" id="field"/>
+        <input type="submit" value="提交" data-wait="Please wait." class="button-77-cofpy-copy w-button">
       </form:form>
       <div class="w-form-done">
         <div>Thank you! Your submission has been received!</div>
@@ -311,6 +319,38 @@
       </div>
     </div>
   </section>
+  <!-- 模態覆蓋 -->
+<div id="overlay" style="display:none;"></div>
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="hideModal()">&times;</span>
+
+
+
+    <div class="w-form">
+      <form    id="email-form2" name="email-form2" data-name="Email Form" method="post" class="form-7 form-9" data-wf-page-id="64ffa1e78ff5aaf23ced1b18" data-wf-element-id="8cdaf3e1-8e67-7d25-6469-5ad8ad6847e1">
+        <div>
+          <h3 class="heading-24">評分:</h3>
+         <div class="rating2">
+          <i class="rating__star2 far fa-star" ></i>
+          <i class="rating__star2 far fa-star"></i>
+          <i class="rating__star2 far fa-star"></i>
+          <i class="rating__star2 far fa-star"></i>
+          <i class="rating__star2 far fa-star"></i>
+          <input type="hidden" name="rating2" id="rating2"  value="0"/>
+  		</div>
+        </div>
+        
+        <textarea class="textarea-3 w-input"  name="reviewText2" maxlength="5000"  data-name="Field" placeholder="" id="field2"/></textarea>
+        <input type="submit" value="提交" data-wait="Please wait." class="button-77-cofpy-copy w-button">
+      </form>
+
+    </div>
+
+  </div>
+</div>
   <div class="section no-padding-vertical">
     <div class="wrapper side-paddings"></div>
   </div>
@@ -333,9 +373,9 @@
           <a href="#" class="footer-link-two">Resources</a>
         </div>
         <div class="footer-form w-form">
-          <form id="wf-form-Footer-Form" name="wf-form-Footer-Form" data-name="Footer Form" method="get" class="footer-form-container" data-wf-page-id="650071e17cd3c26438526046" data-wf-element-id="59b5997e-127b-028f-3341-9500c3fdafa7">
+          <form id="wf-form-Footer-Form" name="wf-form-Footer-Form" data-name="Footer Form" method="get" class="footer-form-container" data-wf-page-id="64ffa1e78ff5aaf23ced1b18" data-wf-element-id="59b5997e-127b-028f-3341-9500c3fdafa7">
             <div class="footer-title">Subscribe</div>
-            <div class="footer-form-block"><input type="email" class="footer-form-field w-input" maxlength="256" name="Footer-Email" data-name="Footer Email" aria-label="Get product updates" placeholder="Get product updates" id="Footer-Email" required=""><input type="submit" value="" data-wait="Please wait..." class="footer-form-submit w-button"></div>
+            <div class="footer-form-block"><input type="email" class="footer-form-field w-input" maxlength="256" name="Footer-Email" data-name="Footer Email" aria-label="Get product updates" placeholder="Get product updates" id="Footer-Email" required=""><input type="submit" value="" data-wait="Please wait." class="footer-form-submit w-button"></div>
           </form>
           <div class="w-form-done">
             <div>Thank you! Your submission has been received!</div>
@@ -362,13 +402,210 @@
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=64e5ed3359b16400aec286b0" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="/js/webflow.js" type="text/javascript"></script>
   <script src="/js/star.js" type="text/javascript"></script>
+  <input type="hidden" id="csrfToken" value="${_csrf.token}" />
+  <input type="hidden" id="gameId" value="${items.id}">
+  <script>
+ let gameId;
+ const currentUserId = ${currentUserId};
 
-<script>
+ const modal = document.getElementById("myModal");
+ const overlay = document.getElementById("overlay");
+ let currentPage = 0;
+ 
+ function generateStars(rating) {
+	  let stars = '';
+	  for(let i = 0; i < rating; i++) {
+	    stars += `<div class="f-icon-regular-3 w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
+	                <path d="M11.999 15.8196L7.50882 18.562L8.72951 13.4439L4.73438 10.0217L9.97847 9.60156L11.999 4.74323L14.0194 9.60156L19.2643 10.0217L15.2684 13.4439L16.4891 18.562L11.999 15.8196Z" fill="currentColor"></path>
+	              </svg></div>`;
+	  }
+	  return stars;
+	}
+//JavaScript
+document.addEventListener("DOMContentLoaded", function() {
+	gameId = document.getElementById('gameId').value;
+	fetchReviews(6); // 頁面加載時默認顯示所有評論
+});
+ 
+
+function fetchReviews(star,page=0) {
+	
+  let url = `/api/reviews?gameId=\${gameId}&page=\${page}&size=9`;
+  if (star !== 6) {
+    url += `&star=\${star}`;
+  }
+
+  fetch(url, {
+	  method: 'GET', // 或者其他HTTP方法，如'POST'
+	  headers: {
+	    'Content-Type': 'application/json',
+	    // 添加CSRF令牌到頭部
+	    'X-CSRF-Token': document.getElementById('csrfToken').value
+	  }
+	})
+    .then(response => response.json())
+    .then(data => {
+
+      // 清空現有評論
+      const reviewContainer = document.querySelector(".f-grid-three-column");
+      reviewContainer.innerHTML = '';
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = '';
+
+      
+      data.data.forEach(review => {
+    	  	
+    	    const reviewElement = document.createElement("div");
+    	    reviewElement.className = "f-testimonial-outline-small";
+  			
+
+
+
+    	   let avatar = review.avatar ? `data:image/jpeg;base64,\${review.avatar}` : "/images/avatar.png";
+    	  
+    	  
+    	  const stars = generateStars(review.rating); // 調用剛才創建的函數
+
+    	  
+    	  reviewElement.innerHTML = `
+    	    <div class="f-testimonial-star-wrapper">
+    	      \${stars} <!-- 插入星星 -->
+    	    </div>
+    	    <div class="f-margin-bottom-80">
+    	      <p class="f-paragraph-small-3">\${review.text}</p>
+    	    </div>
+    	    <div class="f-testimonial-author">
+    	      <div class="f-testimonial-avatar-small">
+    	        <img src=\${avatar} loading="lazy" alt="" class="f-avatar-image-2">
+    	      </div>
+    	      <div>
+    	        <p class="f-paragraph-regular-8 f-text-weight-medium">\${review.username}</p>
+    	      </div>
+    	    </div>
+    	    `;
+    	       // 如果該評論的userId與當前登入的用戶ID相符，添加刪除和修改按鈕
+   		 if  (currentUserId !== -1 && review.userId === currentUserId) {
+        	const editButton = document.createElement("button");
+        	editButton.className = "edit-button";
+        	editButton.innerText = "編輯";
+        	editButton.addEventListener('click', function() {
+            // 這裡是點擊後要執行的代碼，比如顯示編輯表單
+            showModal(review.id);  // 假設showEditForm是您用來顯示編輯表單的函數
+        });
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.innerText = "刪除";
+        deleteButton.addEventListener('click', function() {
+            // 這裡是點擊後要執行的代碼，比如發起一個刪除該評論的HTTP請求
+            deleteReview(review.id);  // 假設deleteReview是您用來刪除評論的函數
+        });
+        
+        // 將按鈕添加到評論元素中
+        reviewElement.appendChild(editButton);
+        reviewElement.appendChild(deleteButton);
+    	}
+    	  reviewContainer.appendChild(reviewElement);
+    	});
+
+      // 填充頁碼按鈕
+
+      
+      for (let i = 0; i < data.totalPages; i++) {
+        const pageButton = document.createElement("button");
+        pageButton.innerText = (i + 1).toString();
+        pageButton.onclick = function() {
+          fetchReviews(star, i);
+        };
+        if (i === data.currentPage) {
+          pageButton.classList.add("active");  // 標記當前頁碼
+        }
+        pagination.appendChild(pageButton);
+      }
+      
+
+    	});
+	}
+	
+//顯示模態框和覆蓋
+function showModal(reviewId) {
+  // 設定一個數據屬性以存儲評論的ID，這樣就可以在提交時使用
+  
+  modal.setAttribute('data-review-id', reviewId);
+  
+  modal.style.display = "block";
+  overlay.style.display = "block";
+}
+function hideModal() {
+	  modal.style.display = "none";
+	  overlay.style.display = "none";
+}
+//當表單提交時的處理
+document.getElementById("email-form2").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const reviewId = modal.getAttribute('data-review-id');
+    const reviewText = document.getElementById('field2').value;
+    const rating = document.getElementById('rating2').value;
+    
+    fetch(`/reviews2/\${reviewId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-Token': document.getElementById('csrfToken').value
+        },
+        body: JSON.stringify({
+            rating: rating,
+            reviewText: reviewText
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        
+        alert('編輯成功!');  // 這裡添加了警告框
+        hideModal(); // 隱藏模態框
+        fetchReviews(6)
+        
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('編輯失敗!');  // 可選：如果出錯，顯示一個不同的消息
+    });
+});
+
+
+function deleteReview(reviewId) {
+    const csrfToken = document.getElementById('csrfToken').value;
+    
+    fetch(`/api/reviews/\${reviewId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.getElementById('csrfToken').value 
+        }
+    })
+    .then(response => {
+        if(response.ok) {
+            alert('評論已成功刪除!');
+            // 如果需要，您還可以重新加載或更新頁面上的評論列表
+            fetchReviews(6);
+        } else {
+            alert('刪除評論失敗！');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('刪除評論時出錯！');
+    });
+}
+
+	
+
+
 
 document.getElementById('addToCart').addEventListener('click', function() {
 	const csrfToken = document.getElementById('csrfToken').value;  
 	const itemId = this.getAttribute('data-item-id'); // 獲取商品ID
-	  console.log('Item ID:', itemId); // 這會在控制台顯示 itemId。確保這個值是正確的。
+	   
 	  fetch('/api/addToCart', {
 	    method: 'POST',
 	    headers: {
@@ -390,8 +627,12 @@ document.getElementById('addToCart').addEventListener('click', function() {
 	    alert('加入購物車失敗');
 	  });
 	});
+	
 </script>
-<input type="hidden" id="csrfToken" value="${_csrf.token}" />
-${_csrf.token}
+
 </body>
+
+
+
+
 </html>

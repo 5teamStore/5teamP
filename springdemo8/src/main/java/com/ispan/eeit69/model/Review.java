@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "review")
 public class Review implements Serializable {
@@ -27,9 +30,11 @@ public class Review implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "itemsId", referencedColumnName = "id")
+	@JsonBackReference
 	private Item itemsId;
 	@ManyToOne
 	@JoinColumn(name = "userId", referencedColumnName = "id")
+	@JsonIgnoreProperties({"reviews", "password", "email", "carts", "roles"})
 	private User userId;
 
 	public Review() {

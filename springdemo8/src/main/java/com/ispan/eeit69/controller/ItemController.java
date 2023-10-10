@@ -1,6 +1,7 @@
 package com.ispan.eeit69.controller;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,15 +9,20 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ispan.eeit69.model.Item;
 import com.ispan.eeit69.model.ItemCategory;
@@ -93,32 +99,25 @@ public class ItemController {
 //	}
 
 	@GetMapping("/Item/{id}")
-	public String showGameDetails(@PathVariable int id, Model model) {
-
+	public String showGameDetails(@PathVariable int id, Model model,HttpSession session) {
 		// 從資料庫中獲取相關的遊戲信息
-
 		Item items = itemRepository.findById(id).orElse(null);
-		List<ItemCategory> itemCategories = itemCategoryRepository.findAll();
 		if (items == null) {
 			// 處理遊戲不存在的情況，例如返回一個404頁面
 			return "errorPage";
 		}
-		// 獲取評論列表
-		List<Review> reviews = items.getReviews(); // 假設 Items 類已經和 Review 類建立了對應的關係
-		// 獲取其他相關的信息，例如影片和圖片
-		// 為每一條評論添加用戶名和頭像
 		
-
+		User myUser=(User)session.getAttribute("myUser");
+		String currentUserId = "-1";
+		if (myUser != null) {
+			currentUserId = String.valueOf(myUser.getId());
+		}
+		System.out.println(currentUserId);
 		// 將所有獲取到的數據添加到 model 對象中
+		model.addAttribute("currentUserId",currentUserId);
 		model.addAttribute("newReview", new Review());
-		model.addAttribute("itemCategories", itemCategories);
 		model.addAttribute("items", items);
-		model.addAttribute("review", reviews);
-
-		// model.addAttribute("videos", videos); // 假設您已經取得了影片列表
-		// model.addAttribute("images", images); // 假設您已經取得了圖片列表
-
-		return "Item"; // 返回遊戲詳情的視圖名稱
+		return "Item1"; // 返回遊戲詳情的視圖名稱
 	}
 
 	@PostMapping("/Item/{id}")
@@ -158,6 +157,7 @@ public class ItemController {
 		// 重定向到遊戲詳情頁
 		return "redirect:/Item/" + id;
 	}
+
 	@PostMapping("/search")
 	public ResponseEntity<Map<String, Object>> search(@RequestBody Map<String, String> payload) {
 	    String query = payload.get("query"); // 從前端獲取搜尋詞
@@ -180,7 +180,92 @@ public class ItemController {
 	    
 
 	}
+	@GetMapping("/api/reviews")
+    @ResponseBody
+    public ResponseEntity<?> getReviews(
+            @RequestParam(required = false) Integer gameId,
+            @RequestParam(required = false) Integer star,
+            Pageable pageable) {
+        
+        Page<Review> reviews;
+
+        if (gameId != null) {
+            Item item = itemRepository.findById(gameId).orElse(null);
+
+            if (star == null || star == 6) {
+                reviews = reviewRepository.findByItemsId(item, pageable);
+            } else {
+                reviews = reviewRepository.findByItemsIdAndRating(item, star, pageable);
+            }
+        } else {
+            reviews = reviewRepository.findAll(pageable);
+        }
+
+        List<Map<String, Object>> responseList = new ArrayList<>();
+        for (Review review : reviews) {
+            Map<String, Object> reviewMap = new HashMap<>();
+            reviewMap.put("id", review.getId());
+            reviewMap.put("text", review.getReviewText());
+            if (review.getUserId() != null) {
+                reviewMap.put("username", review.getUserId().getUsername());
+                reviewMap.put("userId", review.getUserId().getId());
+                if (review.getUserId().getAvatar() != null) {
+                    try {
+                        reviewMap.put("avatar", review.getUserId().getAvatar().getDataUri());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    reviewMap.put("avatar", "");
+                }
+            } else {
+                reviewMap.put("username", "匿名");
+                reviewMap.put("userId", null);
+                reviewMap.put("avatar", "");
+            }
+            reviewMap.put("rating", review.getRating());
+            responseList.add(reviewMap);
+        }
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("data", responseList);
+        response.put("currentPage", reviews.getNumber());
+        response.put("totalPages", reviews.getTotalPages());
+
+        return ResponseEntity.ok(response);
+    }
+    
+	@PutMapping("/reviews2/{id}")
+    public ResponseEntity<Review> updateReview(@PathVariable Integer id, @RequestBody Review review) {
+
+    	
+        Optional<Review> existingReviewOpt = reviewRepository.findById(id);
+        if (!existingReviewOpt.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        Review existingReview = existingReviewOpt.get();
+        existingReview.setReviewText(review.getReviewText());
+        existingReview.setRating(review.getRating());
+        
+        // 其他需要更新的字段...
+
+        Review updatedReview = reviewRepository.save(existingReview);
+        return new ResponseEntity<>(updatedReview, HttpStatus.OK);
+    }
+    @DeleteMapping("/api/reviews/{id}")
+    public ResponseEntity<?> deleteReview(@PathVariable Integer id) {
+        // 先檢查該評論是否存在
+
+        if (!reviewRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        reviewRepository.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
 }
+
 
 
 
