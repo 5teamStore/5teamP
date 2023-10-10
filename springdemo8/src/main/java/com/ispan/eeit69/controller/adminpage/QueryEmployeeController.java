@@ -58,6 +58,7 @@ public class QueryEmployeeController extends AbstractController{
         model.addAttribute("startIndex", startIndex);
         model.addAttribute("endIndex", Math.min(startIndex + recordsPerPage - 1, totalRecords - 1));
         model.addAttribute("currentPage", page);
+        model.addAttribute("totalRecords", totalRecords);
 
         return "/adminpages/employees"; 
     }
@@ -96,6 +97,7 @@ public class QueryEmployeeController extends AbstractController{
 	    model.addAttribute("endIndex", Math.min(startIndex + recordsPerPage - 1, totalRecords - 1));
 	    model.addAttribute("currentPage", page);
 	    model.addAttribute("keyword", keyword);
+	    model.addAttribute("totalRecords", totalRecords);
 
 	    return "/adminpages/employees";
 	}

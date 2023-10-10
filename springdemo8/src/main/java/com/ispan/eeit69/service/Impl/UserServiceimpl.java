@@ -9,7 +9,9 @@ import javax.mail.MessagingException;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -108,8 +110,10 @@ public class UserServiceimpl implements UserService {
 	}
 
 	@Override
-	public List<User> getUserSubset(int startIndex, int recordsPerPage) {
-		return userrepository.findAll().subList(startIndex, Math.min(startIndex + recordsPerPage, userrepository.findAll().size()));
+	public Page<User> getUserSubset(int startIndex, int recordsPerPage) {
+	    int pageIndex = startIndex / recordsPerPage;
+	    Pageable pageable = PageRequest.of(pageIndex, recordsPerPage);
+	    return userrepository.findByUsernameContaining("", pageable);
 	}
 
 	@Override
@@ -119,9 +123,9 @@ public class UserServiceimpl implements UserService {
 	
 
     @Override
-    public List<User> searchUsersByKeyword(String keyword, int startIndex, int recordsPerPage) {
+    public Page<User> searchUsersByKeyword(String keyword, int startIndex, int recordsPerPage) {
         int pageIndex = startIndex / recordsPerPage;
-        List<User> users = userrepository.findByUsernameContaining(keyword, PageRequest.of(pageIndex, recordsPerPage));
+        Page<User> users = userrepository.findByUsernameContaining(keyword, PageRequest.of(pageIndex, recordsPerPage));
         return users;
     }
 	

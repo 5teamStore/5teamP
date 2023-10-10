@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.mail.MessagingException;
 
+import org.springframework.data.domain.Page;
+
 import com.ispan.eeit69.model.User;
 import com.ispan.eeit69.service.Impl.EmailNotFoundException;
 
@@ -27,9 +29,9 @@ public interface UserService {
 	 
 	long getTotalUserCount();
 		
-	List<User> getUserSubset(int startIndex, int recordsPerPage);
+	Page<User> getUserSubset(int startIndex, int recordsPerPage);
 	
 	long getTotalUserCountByKeyword(String keyword);
 	
-	public List<User> searchUsersByKeyword(String keyword, int startIndex, int recordsPerPage);
+	public Page<User> searchUsersByKeyword(String keyword, int startIndex, int recordsPerPage);
 }

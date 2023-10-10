@@ -1,9 +1,8 @@
 package com.ispan.eeit69.controller.adminpage;
 
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,7 +39,7 @@ public class QueryUserController extends AbstractController {
         }
 
         int startIndex = (pageInt - 1) * recordsPerPage;
-        List<User> userList = userService.getUserSubset(startIndex, recordsPerPage);
+        Page<User> userList = userService.getUserSubset(startIndex, recordsPerPage);
 
         model.addAttribute("userList", userList);
         model.addAttribute("totalPages", totalPages);
@@ -58,7 +57,7 @@ public class QueryUserController extends AbstractController {
 	                                  Model model) {
 	    long totalRecords;
 	    int pageInt = (int) page;
-	    List<User> userList;
+	    Page<User> userList;
 
 	    if (keyword != null && !keyword.isEmpty()) {
 	        // 如果提供了關鍵字，則根據關鍵字查詢物品

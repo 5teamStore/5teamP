@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -338,7 +337,7 @@
 								<div class="hint-text">
 									<!-- 顯示當前頁數範圍與總數量 -->
 									<font size="4">顯示第 <b id="start">${startIndex + 1}</b> 至 <b id="end">${endIndex + 1}</b>
-									筆，共有 <b id="total">${fn:length(employeeList)}</b> 筆</font>
+									筆，共有 <b id="total">${totalRecords}</b> 筆</font>
 								</div>
 								<ul class="pagination">
 									<!-- 上一頁按鈕 -->
